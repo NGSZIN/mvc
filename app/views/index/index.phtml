@@ -1,0 +1,13 @@
+
+<h1>Página Incial</h1>
+<hr>
+<p>Controlador: IndexController</p>
+<p>Action: index</p>
+<hr>
+<h2>Simulando dados vindo do banco</h2>
+
+<?php
+    foreach ($this->view->dados as $indice => $valor) {
+        echo $valor . '<br>';
+    }
+?>
