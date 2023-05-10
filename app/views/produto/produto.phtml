@@ -1,0 +1,25 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="fs-2 mb-0 text-gray-800">Cadastro de Produtos</h1>
+</div>
+<form action="/produto_salvar" method="POST">
+    <div class="row">
+        <div class="col-12 col-md-12 mb-3">
+            <label for="" class="form-label">Descricao</label>
+            <input type="text" class="form-control" required>
+
+        </div>
+        <div class="col-12 col-md-12 mb-3">
+            <label for="" class="form-label">Preço</label>
+            <input type="number" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <input type="hidden" name="acao" value="cadastrar" />
+            <input class="btn btn-primary" type="submit" value="Cadastrar produto" />
+        </div>
+    </div>
+</form>
+<!-- Conteudo da Pagina -->

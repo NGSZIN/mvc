@@ -1,13 +1,18 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="fs-2 mb-0 text-gray-800">Produtos</h1>
+</div>
 
-<h1>Produtos</h1>
-<hr>
-<p>Controlador: ProdutoController</p>
-<p>Action: index</p>
-<hr>
-<h2>Simulando dados vindo do banco</h2>
+<!-- Conteudo da Pagina -->
 
 <?php
-    foreach ($this->view->dados as $indice => $valor) {
-        echo $valor . '<br>';
-    }
+
+foreach ($this->view->dados as $indice => $produto) { ?>
+    <p><?= $produto['id'] . ' - ' . $produto['descricao'] . ' - '; ?></p>
+    <p><?= $produto['preco'] . ' - ' . $produto['ativo'] . ' - '; ?></p>
+    <p><?= $produto['criado_em'] . '<br>'; ?></p>
+
+    <hr>
+<?php
+}
 ?>

@@ -46,21 +46,39 @@
             return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         }
 
-        //responsavel pela identificação do controller e chamada da action desejada
-        protected function run($url) {            
-            foreach ($this->getRoutes() as $key => $route) {
-                if ($url == $route['route']) {
-                    $class = "App\\controllers\\" . ucfirst($route['controller']);
-                    $controller = new $class;
+        protected function run($url)
+    {        
+        $rota = array();
 
-                    $action = $route['action'];
+        foreach ($this->getRoutes() as $key => $route) {
+            if ($url == $route['route']) {
+                $class = "App\\controllers\\" . ucfirst($route['controller']);
+                $action = $route['action'];
 
-                    $controller->$action();
-
-                    // echo 'Controlador a ser chamado: ' . $class . '<br>';
-                }
-            }
+                $rota = array(
+                    "classe" => $class,
+                    "action" => $action,
+                );
+            }            
         }
+        $this->loadView($rota);
+    }
+
+    public function loadView(array $rota)
+    {
+        if (!empty($rota)) {
+            $controller = new $rota['classe'];
+            $action = $rota['action'];
+            $controller->$action();
+        } else {
+            //AuthController::validaAutenticacao();
+
+            $class = "App\\controllers\\ErrorController";
+            $controller = new $class;
+            $action = "error404";
+            $controller->$action();       
+        }
+    }
 
     }
 ?>

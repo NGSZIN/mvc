@@ -16,28 +16,30 @@
         //toda rota dever ser inserida aqui
         protected function initRoutes() {
             
-            $routes['home'] =  array(
-                'route'         =>      '/',
-                'controller'    =>      'indexController',
-                'action'        =>      'index'
-            );
+            //rotas do IndexController
+            $routes['home'] =  array('route' => '/','controller' => 'indexController', 'action' => 'index');
 
-            $routes['sobre_nos'] = array(
-                'route'         =>      '/sobre_nos',
-                'controller'    =>      'indexController',
-                'action'        =>      'sobre_nos'
-            );
-            $routes['contato'] = array(
-                'route'         =>      '/contato',
-                'controller'    =>      'indexController',
-                'action'        =>      'contato'
-            );
+            $routes['contato'] =  array ('route' => '/contato','controller' => 'indexController', 'action' => 'contato');
 
-            $routes['produto'] = array(
-                'route'         =>      '/produto',
-                'controller'    =>      'produtoController',
-                'action'        =>      'index'
-            );
+            $routes['login'] =  array ('route' => '/login','controller' => 'indexController', 'action' => 'login');
+
+            //rotas do ErrorController
+
+            //rotas do AutoController
+            $routes['autenticar'] =  array ('route' => '/autenticar','controller' => 'AuthController', 'action' => 'autenticar');
+
+            $routes['sair'] =  array ('route' => '/sair','controller' => 'AuthController', 'action' => 'sair');
+
+            //rotas do authcontroller
+            $routes['admin'] =  array ('route' => '/admin','controller' => 'AdminController', 'action' => 'index');
+
+            //rotas do Usuariocontroller
+            $routes['usuario_novo'] =  array ('route' => '/usuario_novo','controller' => 'UsuarioController', 'action' => 'cadastrar');
+
+            $routes['salvar_usuario'] =  array ('route' => '/salvar_usuario','controller' => 'UsuarioController', 'action' => 'salvar_usuario');
+
+            
+
 
             $this->setRoutes($routes);
         }

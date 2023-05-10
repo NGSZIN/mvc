@@ -3,17 +3,29 @@
 namespace App\controllers;
 
 use Core\controller\Action;
+use App\database\Connection;
+use App\models\ProdutoModel;
 
 class ProdutoController extends Action
 {
     
     public function index()
-    {
-        $this->view->dados = array("Mouse", "Caneta", "Teclado");
-        $this->render("index");
+    {        
+        $conn = Connection::getDb();
+
+        $produto = new ProdutoModel($conn);
+
+        $produtos = $produto->getProdutos();
+
+        $this->view->dados = $produtos;
+
+        $this->render("index", "layout");
     }
 
-    
+    public function create() {
+        $this->view->dados = "";
+        $this->render("produto", "layout");
+    }
 }
 
 

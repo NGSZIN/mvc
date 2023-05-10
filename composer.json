@@ -11,12 +11,15 @@
     ],
     "minimum-stability": "alpha",
     "require": {
-
+        "filp/whoops": "^2.15"
     },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
             "Core\\": "core/"
-        }
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
     }
 }
